@@ -1,34 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# How to run
+First, run **npm install** in the project directory to install all necessary dependencies. After installation is complete, start the local development server with **npm run dev**. The project should then open on localhost:3000.
 
-## Getting Started
+## Project Overview
+This is an e-commerce project that focus exclusively on the front-end side of things. It uses the https://fakestoreapi.com/ to fetch an array of 20 products. The user can search for products, add the products to the shopping cart, remove them, filter them by category and sort them by price or better rating.
 
-First, run the development server:
+The project contains 3 pages:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Homepage: where the user can see the list of products and apply filters.
+Product page: where the user can see the product's information, including description, full size image and related products.
+Cart page: where the user can see the summary of the order and change the number of items in the purchase. It also includes the price sum of the total number of items.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies involved
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The project was developed in TypeScript, React, Next.js, Tailwind CSS and Cypress for testing.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Observations: even though I very much prefer to keep the styling separated from the main code, Tailwind is heavily recommended by the Next.js framework, and its advantages can't be denied. 
 
-## Learn More
+## E2E Tests
 
-To learn more about Next.js, take a look at the following resources:
+I included 8 E2E tests (Cypress) to assure the filtering and sorting features work properly. As the project grows bigger and more features are added, these tests should keep the integrity of the code and avoid regressions.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To run the tests, execute **npx cypress open** (after having installed all the dependencies via npm install), then choose **E2E Testing**, and choose your prefered browser. After that, you should see 2 specs: **TEST_CATEGORY_FILTERS** and **TEST_SORT_FILTERS**. Clicking in any of them will run the tests and displays the resulsts automatically.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Possible next steps
 
-## Deploy on Vercel
+If this was a real life project, the top priority would be: 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+• improve the initial loading time of the page. This can easily be achieved via Suspense Boundaries, Code Splitting, Lazy Loading, Streaming, etc.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+• write a lot more tests to preserve the other existing functionalities that were not covered in the current tests.
+
+In a less urgent note, possible next steps would be:
+
+• UI improvements and refinements.
+• integrate the Auth.js library to implement login/authentication feature.
+• integrate the Stripe library to implement payment.
+• wishlist feature (after we have implemented the login).
+• images of the items inside the CartPage should be Links to that specific product's page.
+• product comparison page (displays 2 or 3 products side by side for comparison).
+• breadcrumbs in the ProductPage. Example: Men's Clothing -> Mens Casual Premium Slim Fit T-Shirts.
+
+## Project Overview
+
+![Alt text](./lxchallenge_overview.png)
