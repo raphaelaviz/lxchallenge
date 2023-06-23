@@ -20,7 +20,9 @@ Observations: even though I very much prefer to keep the styling separated from 
 
 I included 8 E2E tests (Cypress) to assure the filtering and sorting features work properly. As the project grows bigger and more features are added, these tests should keep the integrity of the code and avoid regressions.
 
-To run the tests, execute **npx cypress open** (after having installed all the dependencies via npm install), then choose **E2E Testing**, and choose your prefered browser. After that, you should see 2 specs: **TEST_CATEGORY_FILTERS** and **TEST_SORT_FILTERS**. Clicking in any of them will run the tests and displays the resulsts automatically.
+To run the tests, execute **npx cypress run** after having executed npm run dev.
+
+Alternatively, if you want to see the test in the browser, run **npx cypress open** (after having installed all the dependencies via npm install), then choose **E2E Testing**, and choose your prefered browser. After that, you should see 2 specs: **TEST_CATEGORY_FILTERS** and **TEST_SORT_FILTERS**. Clicking in any of them will run the tests and displays the results automatically.
 
 ## Possible next steps
 
