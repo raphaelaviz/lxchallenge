@@ -27,7 +27,7 @@ describe('Checks if ProductGrid component displays the right amount of products 
       cy.get('[data-testid="product-card"]').should('have.length', 4);
     });
 // Electronics
-    it('renders 4 ProductCard components when "Electronics" is clicked', () => {
+    it('renders 6 ProductCard components when "Electronics" is clicked', () => {
       
       cy.get('button').contains("Electronics").should('exist');
   
@@ -38,7 +38,7 @@ describe('Checks if ProductGrid component displays the right amount of products 
       cy.get('[data-testid="product-card"]').should('have.length', 6);
     });
 // Women's Clothing
-    it('renders 4 ProductCard components when "Women\'s Clothing" is clicked', () => {
+    it('renders 6 ProductCard components when "Women\'s Clothing" is clicked', () => {
       
       cy.get('button').contains("Women's Clothing").should('exist');
   
@@ -49,7 +49,7 @@ describe('Checks if ProductGrid component displays the right amount of products 
       cy.get('[data-testid="product-card"]').should('have.length', 6);
     });
 // All products
-    it('renders 4 ProductCard components when "All products" is clicked', () => {
+    it('renders 20 ProductCard components when "All products" is clicked', () => {
       
       cy.get('button').contains("All products").should('exist');
   
