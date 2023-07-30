@@ -1,4 +1,4 @@
-import Navbar from './components/Navbar'
+import Header from './components/Header'
 import Footer from './components/Footer'
 import Context from './context/Context'
 import './globals.css'
@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Context>
-          <Navbar/>
+          <Header/>
         {children}
         <Footer/>
         </Context>

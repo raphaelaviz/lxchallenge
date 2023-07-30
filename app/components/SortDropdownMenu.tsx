@@ -44,7 +44,7 @@ const SortDropdownMenu: React.FC<SortDropdownMenuProps> = ({ clearFilters }) => 
     <div className="relative mt-4 sm:mt-4 md:mt-4 lg:mt-0" ref={dropdownRef}>
 
       <button 
-        className={`flex p-3 rounded-full bg-pink-100 ${isDropdownMenuOpen ? 'font-bold' : ''}`}
+        className={`flex p-3 pl-4 rounded-full bg-pink-100 ${isDropdownMenuOpen ? 'font-bold' : ''}`}
         onClick={() => setIsDropdownMenuOpen(!isDropdownMenuOpen)}
       >
         Sort by

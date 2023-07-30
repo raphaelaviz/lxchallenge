@@ -4,25 +4,19 @@ import React from 'react';
 import { useCart } from '../context/Context';
 import { ACTIONS } from '../context/actions';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import CartSummary from '../components/CartSummary';
+import GoBackButton from '../components/GoBackButton';
 
 const CartPage: React.FC = () => {
   const { state, dispatch } = useCart();
-  const router = useRouter();
+ 
 
   return (
     <div className="grid grid-cols-1 md:flex md:justify-between">
       <div className="p-6 md:min-h-screen md:w-2/3">
         <div className="mb-4">
 
-          <button
-            className="bg-pink-300 hover:bg-gray-800 text-white hover:text-white text-lg p-2 rounded-full transition-colors duration-200" 
-            type="button" 
-            onClick={() => router.back()}
-          >
-            ←
-          </button>
+          <GoBackButton/>
         </div>
 
         <h1 className="text-2xl font-bold mb-4">
@@ -44,7 +38,7 @@ const CartPage: React.FC = () => {
             <div className='flex flex-col sm:flex-row flex-grow justify-center sm:justify-start items-center'>
               <p className="text-lg font-bold flex-grow max-w-xl">{item.product.title}</p>
 
-              <div className='flex flex-col sm:flex-row flex-grow justify-between space-x-4'>
+              <div className='flex flex-col sm:flex-row flex-grow justify-between'>
                 <p>${item.product.price.toFixed(2)}</p>
                 <div className='flex items-center space-x-2'>
 
@@ -78,7 +72,9 @@ const CartPage: React.FC = () => {
         ))}
       </div>      
       <CartSummary cart={state.cart} />
+    
     </div>
+  
 );
 
 

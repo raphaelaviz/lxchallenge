@@ -7,7 +7,7 @@ import { useCart } from '../../context/Context';
 import AddToCartButton from '../../components/AddToCartButton';
 import RelatedProductsContainer from '../../components/RelatedProductsContainer';
 import Modal from '../../components/Modal';
-import { useRouter } from 'next/navigation';
+import GoBackButton from '@@u/app/components/GoBackButtonndefined';
 
 
 // Renders the single product page by generating dynamic routes according to the ID of the selected product.
@@ -15,7 +15,7 @@ import { useRouter } from 'next/navigation';
 const ProductPage = ({ params }: { params: { id: number } }) => {
   
   const { state: { products }} = useCart();
-  const router = useRouter();
+
 
   const product: Product | undefined = products.find(product => product.id === Number(params.id));
 
@@ -41,17 +41,11 @@ const ProductPage = ({ params }: { params: { id: number } }) => {
   };
 
   return (
-    <div className="px-5 sm:px-10 md:px-20 py-5">
+    <div className="p-5">
       <div className="mb-4">
-        <button
-          className="bg-pink-300 hover:bg-gray-800 text-white hover:text-white text-lg p-2 rounded-full transition-colors duration-200" 
-          type="button" 
-          onClick={() => router.back()}
-        >
-          ←
-        </button>
+        <GoBackButton/>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:px-20">
         <div className="cursor-pointer" onClick={openLightboxGallery}>
           <Image
             src={product.image}
@@ -61,12 +55,12 @@ const ProductPage = ({ params }: { params: { id: number } }) => {
           />
           {isLightboxGalleryOpen && <Modal imageSrc={product.image} onClose={closeLightboxGallery} />}
         </div>
-        <div>
-          <h1 className="text-2xl font-bold">{product.title}</h1>
+        <div className='space-y-3'>
+          <h1 className="text-3xl font-bold">{product.title}</h1>
           <p className="my-2">{product.description}</p>
-          <p className="text-lg font-semibold">${product.price.toFixed(2)}</p>
-          <p className="text-md">{product.category}</p>
-          <div className="text-sm">
+          <p className="text-2xl font-semibold">${product.price.toFixed(2)}</p>
+          <p>Category: {product.category}</p>
+          <div>
             Rating: {product.rating.rate}
             ({product.rating.count} reviews)
           </div>

@@ -12,7 +12,7 @@ const CartSummary: React.FC<CartSummaryProps> = ({ cart }) => {
 
   return (
     
-    <div className="flex flex-col items-center p-4 min-w-max border border-gray-300 border-opacity-25">
+    <div className="flex flex-col items-center p-4 min-w-max border border-gray-300 border-opacity-25 space-y-8 md:mr-20">
       <h1 className='text-4xl mb-5 sm:mt-0 md:mt-0 lg:mt-48'>Total items: {totalItems}</h1>
       <h2 className='text-3xl mb-5'>Total price: ${totalPrice}</h2>
       <button 

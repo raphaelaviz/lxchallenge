@@ -11,7 +11,7 @@ const RelatedProductsContainer: React.FC<RelatedProductsContainerProps> = ({ pro
 
   return (
     <div className="mt-10 w-full">
-      <h3 className="text-2xl font-bold">Related Products</h3>
+      <h3 className="text-2xl font-bold mb-4">Related Products</h3>
       <div className="flex justify-between w-full space-x-4">
         {products.map((product: Product) => (
           <div 

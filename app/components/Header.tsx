@@ -3,9 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { TiShoppingCart } from 'react-icons/ti'
 import CartBadge from './CartBadge';
-import logo from '../../public/logo.png'
+import logo from '../../public/logo.webp'
 
-const Navbar = () => {
+const Header = () => {
   return (
     <nav className="navbar p-4 bg-pink-100 shadow flex justify-between items-center">
     
@@ -25,4 +25,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;
