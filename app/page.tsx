@@ -3,13 +3,21 @@ import ProductGrid from './components/ProductGrid'
 import FilterBar from './components/FilterBar'
 
 
-// This file should be named "page.tsx" for Next.js routing purposes.
+async function getProducts() {
+  const response = await fetch('https://fakestoreapi.com/products/')
+  if (!response.ok) {
+    throw new Error('Failed to fetch data')
+  }
+  return response.json()
+}
+
  
-export default function Home() {
+export default async function Home() {
+  const products = await getProducts()
   return (
     <>
-      <FilterBar />
-      <ProductGrid/>
+      <FilterBar/>
+      <ProductGrid products={products}/>
     </>
   )
 }

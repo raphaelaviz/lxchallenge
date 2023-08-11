@@ -1,16 +1,25 @@
-'use client'
+'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import ProductCard from './ProductCard';
 import { useCart } from '../context/Context';
+import { Product } from '../context/types';
+import { ACTIONS } from '../context/actions';
 
+interface ProductGridProps {
+  products?: Product[];
+}
 
-// This component checks for existing filters to display the products accordingly.
+const ProductGrid: React.FC<ProductGridProps> = ({ products = [] }) => {
+  const { state: { products: productsFromContext }, productState, dispatch } = useCart();
 
-const ProductGrid: React.FC = () => {
-  const { state: { products }, productState } = useCart();
+  useEffect(() => {
+    if (products.length > 0) {
+      dispatch({ type: ACTIONS.LOAD_PRODUCTS, payload: products });
+    }
+  }, [products]);
 
-  let filteredProducts = [...products];
+  let filteredProducts = [...productsFromContext];
 
 
   if (productState.categoryFilter) {

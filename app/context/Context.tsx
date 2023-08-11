@@ -13,11 +13,12 @@ const Cart = createContext<ContextState | undefined>(undefined);
 
 interface ContextProps {
   children: React.ReactNode;
+  initialProducts?: Product[];
 }
 
-const Context: React.FC<ContextProps> = ({ children }) => {
+const Context: React.FC<ContextProps> = ({ children, initialProducts = [] }) => {
   const [state, dispatch] = useReducer(cartReducer, {
-    products: [],
+    products: initialProducts,
     cart: []
   });
 
@@ -28,23 +29,6 @@ const Context: React.FC<ContextProps> = ({ children }) => {
     categoryFilter: null,
   });
 
-  // Fetches all products from the Fakestore API
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch('https://fakestoreapi.com/products/');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data: Product[] = await response.json();
-        dispatch({ type: ACTIONS.LOAD_PRODUCTS, payload: data });
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      }
-    };
-  
-    fetchProducts();
-  }, [dispatch]);
   
 
   return (
