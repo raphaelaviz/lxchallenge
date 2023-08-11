@@ -22,7 +22,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                     alt={product.title}
                     width={200}
                     height={200}
-                    priority={true}
                 />
                 <h2 className="mt-4 text-lg font-bold">{product.title}</h2>
                 <p className="mt-2 text-2xl text-green-800">${product.price.toFixed(2)}</p>
