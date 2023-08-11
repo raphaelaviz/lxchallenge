@@ -17,7 +17,7 @@ const Header = () => {
       
       <Link href={'/cart'}>
         <div className="relative mr-5">
-          <TiShoppingCart className="text-5xl p-1.5 rounded-full hover:bg-white transition-colors duration-200" name='Cart Page'/>
+          <TiShoppingCart className="text-5xl p-1.5 rounded-full hover:bg-white transition-colors duration-200" aria-label='Cart Page'/>
           <CartBadge />
         </div>
       </Link>
