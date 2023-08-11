@@ -24,7 +24,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                     height={200}
                 />
                 <h2 className="mt-4 text-lg font-bold">{product.title}</h2>
-                <p className="mt-2 text-green-500">${product.price.toFixed(2)}</p>
+                <p className="mt-2 text-2xl text-green-800">${product.price.toFixed(2)}</p>
                 <p className="text-sm text-gray-500">{product.category}</p>
                 <div className="mt-1 text-sm text-gray-500">
                     Rating: {product.rating.rate} ({product.rating.count} reviews)

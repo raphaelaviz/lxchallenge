@@ -30,7 +30,7 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({ product }) => {
 
   return (
     <button 
-      className={`mt-2 ${productInCart ? 'bg-red-500' : 'bg-green-500'} text-white rounded px-2 py-1`} 
+      className={`mt-2 ${productInCart ? 'bg-red-500' : 'bg-green-800'} text-white rounded px-2 py-1`} 
       onClick={handleCartChange}
     >
       {productInCart ? 'Remove from Cart' : 'Add to Cart'}
